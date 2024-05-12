@@ -1,29 +1,5 @@
 import numpy as np
-import matplotlib.pyplot as plt
-
-
-
-def myDFT1(inputx, l, x, y):
-    n = 2*l - 1
-    acoff = np.arange(0, l+1).reshape(1, -1)
-    bcoff = np.arange(1, l).reshape(1, -1)
-    amid = (np.cos(x*acoff)).T
-    bmid = (np.sin(x*bcoff)).T
-
-    ak = 2 * (amid @ y) / (n + 1)
-    bk = 2 * (bmid @ y) / (n + 1)
-
-    akSum = np.array(ak[1:-1])
-    coff = np.arange(1, l).reshape(-1, 1)
-    inside = coff * inputx
-    ainside = np.cos(inside).T
-    binside = np.sin(inside).T
-    asum = (ainside @ akSum).reshape(1, -1)
-    print("asum1: \n", asum)
-
-    bsum = (binside @ bk).reshape(1,-1)
-
-    return asum + bsum + 0.5 * ak[0] + 0.5 * np.cos(l * inputx) * ak[-1]  
+import matplotlib.pyplot as plt  
 
 def myDFT(inputx: np.array, l: int, x: np.array, y:np.array, endPoint=2*np.pi):
     # len(inputx) = m, len(x) = n+1, len(y) = n+1

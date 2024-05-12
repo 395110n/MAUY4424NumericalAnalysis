@@ -26,35 +26,3 @@ print(Q @ R)
 print(A)
 
 print(Q @ Q.transpose())
-
-# for col in range(1, size[1]):
-#     Qk = Q[:, :col]
-#     Acol = A[:, col]
-#     res = Acol @ Qk
-#     diff = res * Qk
-#     sum = np.sum(diff, axis = 1)
-#     v = Acol - sum
-#     norm = np.linalg.norm(v)
-#     q = v / norm
-#     Q[:, col] = q.flatten()
-#     result = np.zeros(size[1])
-#     result[:len(res)] = res.flatten()
-#     result[col] = norm
-#     R[:, col] = result
-
-
-# for col in range(1, size[1]):
-#     Qk = Q[:, :col]
-#     Acol = A[:, col]
-#     res = Acol @ Qk
-#     diff = res[:, np.newaxis] * Qk  # 使用切片操作替代 flatten()
-#     sum = np.sum(diff, axis=1)
-#     v = Acol - sum
-#     norm = np.linalg.norm(v)
-#     q = v / norm
-#     Q[:, col] = q
-#     result = np.zeros(size[1])
-#     result[:len(res)] = res
-#     result[col] = norm
-#     R[:, col] = result
-# 
